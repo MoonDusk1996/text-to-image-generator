@@ -2,7 +2,7 @@ import ProgressiveImage from "react-progressive-graceful-image";
 
 type IProgressiveImgProps = {
   image: string;
-  placeholder?: string;
+  placeholder?: string | null;
   width?: string;
   height?: string;
 };

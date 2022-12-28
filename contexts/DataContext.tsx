@@ -8,6 +8,7 @@ function DataProvider({ children }: { children: React.ReactNode }) {
 
 
   function generateImage(prompt:string) {
+    setData(undefined)
     setIsFething(true);
     fetch(`/api/generateimage`, {
       method: "POST",
@@ -17,6 +18,7 @@ function DataProvider({ children }: { children: React.ReactNode }) {
       body: JSON.stringify({ prompt: prompt }),
     }).then((response) => {
       response.json().then((data) => {
+        localStorage.setItem("currentImage", data?.data.url)
         setData(data);
         setIsFething(false);
       });
