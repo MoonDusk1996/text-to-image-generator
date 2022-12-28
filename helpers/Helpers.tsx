@@ -1,7 +1,6 @@
 
 
 export function setLocalStorage(prompt: any, image?: any) {
-  console.log(image)
   localStorage.setItem("currentPrompt", prompt);
   localStorage.setItem("currentImage", image);
 }
