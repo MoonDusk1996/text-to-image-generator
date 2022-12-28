@@ -18,6 +18,7 @@ function DataProvider({ children }: { children: React.ReactNode }) {
       body: JSON.stringify({ prompt: prompt }),
     }).then((response) => {
       response.json().then((data) => {
+        localStorage.setItem("currentImage", data?.data.url)
         setData(data);
         setIsFething(false);
       });
