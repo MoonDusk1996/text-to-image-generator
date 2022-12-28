@@ -31,10 +31,10 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 
 export const InputBox: React.FC = () => {
   const { generateImage, isFething, data } = useContext(DataContext);
-  let prompt = getLocalStorage();
+  let prompt = getLocalStorage()?.prompt;
 
   function confirmedPrompt() {
-    setLocalStorage(prompt)
+    setLocalStorage(prompt, getLocalStorage()?.image)
     generateImage(prompt);
   }
   return (

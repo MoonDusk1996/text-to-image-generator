@@ -42,26 +42,6 @@ export const RenderContainer: React.FC = () => {
                   view original size
                 </Button>
               </div>
-              <div>
-                <Button
-                  disableFocusRipple={true}
-                  className={styles.uiButton}
-                  sx={{
-                    backgroundColor: "lightslategray",
-                    marginBottom: "10px",
-                    fontFamily: "'VT323', monospace;",
-                    fontSize: "medium",
-                    "&:hover": {
-                      backgroundColor: "lightslategray",
-                    },
-                  }}
-                  fullWidth
-                  variant="contained"
-                  
-                >
-                  <a href={data.data.url} download>Download image</a>
-                </Button>
-              </div>
             </div>
           </div>
         </div>

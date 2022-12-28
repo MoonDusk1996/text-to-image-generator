@@ -1,11 +1,14 @@
-export function setLocalStorage(prompt:any) {
-  if (typeof window !== "undefined") {
-   localStorage.setItem("currentPrompt", prompt);
-  }
+
+
+export function setLocalStorage(prompt: any, image?: any) {
+  console.log(image)
+  localStorage.setItem("currentPrompt", prompt);
+  localStorage.setItem("currentImage", image);
 }
 export function getLocalStorage() {
-    if (typeof window !== "undefined") {
-      var local = localStorage.getItem("currentPrompt");
-      return local
-    }
+  if (typeof window !== "undefined") {
+    var prompt = localStorage.getItem("currentPrompt");
+    var image = localStorage.getItem("currentImage");
+    return { prompt, image };
   }
+}
