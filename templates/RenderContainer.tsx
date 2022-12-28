@@ -8,14 +8,14 @@ import { Button } from "@mui/material/";
 export const RenderContainer: React.FC = () => {
   const { data } = useContext(DataContext);
 
-  async function downloadImage(imageSrc:any) {
-    console.log(data.data.url)
+  async function downloadImage(imageSrc: any) {
+    console.log(data.data.url);
     const image = await fetch(data?.data?.url);
-    console.log("2")
+    console.log("2");
     const imageBlog = await image.blob();
-    console.log("3")
+    console.log("3");
     const imageURL = URL.createObjectURL(imageBlog);
-    console.log("4")
+    console.log("4");
 
     const link = document.createElement("a");
     link.href = imageURL;
@@ -47,6 +47,9 @@ export const RenderContainer: React.FC = () => {
                     marginBottom: "10px",
                     fontFamily: "'VT323', monospace;",
                     fontSize: "medium",
+                    "&:hover": {
+                      backgroundColor: "darkcyan",
+                    },
                   }}
                   variant="contained"
                   href={data.data.url}
@@ -58,12 +61,17 @@ export const RenderContainer: React.FC = () => {
               </div>
               <div>
                 <Button
+                  
+                  disableFocusRipple={true}
                   className={styles.uiButton}
                   sx={{
-                    backgroundColor: "teal",
+                    backgroundColor: "lightslategray",
                     marginBottom: "10px",
                     fontFamily: "'VT323', monospace;",
                     fontSize: "medium",
+                    "&:hover": {
+                      backgroundColor: "lightslategray",
+                    },
                   }}
                   fullWidth
                   variant="contained"
