@@ -21,7 +21,6 @@ export const RenderContainer: React.FC = () => {
           <div className={styles.imgContainer}>
             <ProgressiveImg
               image={data ? data?.data.url : currentImage}
-              placeholder={data ? data?.data.url : currentImage}
               width={"95%"}
               height={"100%"}
             />
