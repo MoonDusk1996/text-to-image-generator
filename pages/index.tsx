@@ -11,7 +11,6 @@ export default function Home() {
           image={"./logogif.gif"}
           placeholder={"./logo.png"}
           width={"100%"}
-          height={"100%"}
         />
         <InputBox />
         <RenderContainer />

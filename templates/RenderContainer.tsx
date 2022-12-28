@@ -6,19 +6,37 @@ import styles from "../styles/Home.module.css";
 import { Button } from "@mui/material/";
 
 export const RenderContainer: React.FC = () => {
-  const { data, generateImage } = useContext(DataContext);
-  console.log(data);
+  const { data } = useContext(DataContext);
+
+  async function downloadImage(imageSrc:any) {
+    console.log(data.data.url)
+    const image = await fetch(data?.data?.url);
+    console.log("2")
+    const imageBlog = await image.blob();
+    console.log("3")
+    const imageURL = URL.createObjectURL(imageBlog);
+    console.log("4")
+
+    const link = document.createElement("a");
+    link.href = imageURL;
+    link.download = "image file name here";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 
   return (
     <>
       {data?.data?.url ? (
         <div className={styles.renderContainer}>
-          <ProgressiveImg
-            image={data.data.url}
-            placeholder={data.data.url}
-            width={"95%"}
-            height={"100%"}
-          />
+          <div className={styles.imgContainer}>
+            <ProgressiveImg
+              image={data.data.url}
+              placeholder={data.data.url}
+              width={"95%"}
+              height={"100%"}
+            />
+          </div>
           <div className={styles.uiContainer}>
             <div className={styles.buttonContainer}>
               <div>
@@ -49,6 +67,7 @@ export const RenderContainer: React.FC = () => {
                   }}
                   fullWidth
                   variant="contained"
+                  onClick={() => downloadImage(data.data.url)}
                 >
                   download
                 </Button>

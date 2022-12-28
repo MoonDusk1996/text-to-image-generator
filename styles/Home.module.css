@@ -11,6 +11,7 @@
   width: 100%;
 }
 .renderContainer {
+  border-radius: 5px;
   margin-top: 10px;
   display: flex;
   justify-content: center;
@@ -23,4 +24,32 @@
   display: flex;
   flex-direction: column;
   width: 95%;
+  
+}
+
+@media screen and (min-width: 600px) {
+  .main {
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 0px;
+  }
+  .inputText {
+    margin-top: 25px;
+  }
+  .renderContainer {
+    margin-top: 45px;
+    flex-direction: row-reverse;
+  }
+  .uiContainer {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .uiButton{
+    display: flex;
+    padding: 10px;
+    
+  }
+  
 }

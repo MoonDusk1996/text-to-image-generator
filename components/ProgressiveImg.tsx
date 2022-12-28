@@ -1,12 +1,18 @@
 import ProgressiveImage from "react-progressive-graceful-image";
-import { ProgressiveImgTypes } from "../@types/types";
+
+type IProgressiveImgProps = {
+  image: string;
+  placeholder?: string;
+  width?: string;
+  height?: string;
+};
 
 export default function ProgressiveImg({
   image,
   placeholder,
   width,
   height,
-}: ProgressiveImgTypes) {
+}: IProgressiveImgProps) {
   return (
     <ProgressiveImage src={image} placeholder={placeholder}>
       {(src, loading) => (
