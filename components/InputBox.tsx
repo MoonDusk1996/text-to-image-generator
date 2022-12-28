@@ -1,5 +1,6 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { DataContext } from "../contexts/DataContext";
+import { getLocalStorage, setLocalStorage } from "../helpers/Helpers";
 import styles from "../styles/Home.module.css";
 
 import Paper from "@mui/material/Paper";
@@ -10,13 +11,12 @@ import { styled } from "@mui/material/styles";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
-import { Divider } from "@mui/material";
-import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   position: "relative",
   top: "-5px",
-  width:"100%",
+  width: "100%",
   height: 5,
   borderRadius: "0px 0px 4px 4px",
   [`&.${linearProgressClasses.colorPrimary}`]: {
@@ -31,10 +31,10 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 
 export const InputBox: React.FC = () => {
   const { generateImage, isFething, data } = useContext(DataContext);
-
-  const [prompt, setPrompt] = useState<string>();
+  let prompt = getLocalStorage();
 
   function confirmedPrompt() {
+    setLocalStorage(prompt)
     generateImage(prompt);
   }
   return (
@@ -48,6 +48,7 @@ export const InputBox: React.FC = () => {
         }}
       >
         <InputBase
+          defaultValue={prompt}
           disabled={isFething}
           sx={{
             ml: "3%",
@@ -56,7 +57,7 @@ export const InputBox: React.FC = () => {
             fontSize: "large",
           }}
           placeholder="Generate a..."
-          onChange={(env) => setPrompt(env.target.value)}
+          onChange={(env) => (prompt = env.target.value)}
           onKeyPress={(e: any) => {
             if (e.key === "Enter") confirmedPrompt();
           }}
@@ -81,12 +82,10 @@ export const InputBox: React.FC = () => {
             marginTop: "10px",
           }}
         >
-
-          <div style={{marginLeft :"3%"}}>
-
-          {data?.data?.message}{" "}
-          </div>
-          <SentimentVeryDissatisfiedIcon sx={{display:"flex", alignItems: "center", padding:"5px"}}/>
+          <div style={{ marginLeft: "3%" }}>{data?.data?.message} </div>
+          <SentimentVeryDissatisfiedIcon
+            sx={{ display: "flex", alignItems: "center", padding: "5px" }}
+          />
         </Paper>
       ) : null}
     </div>

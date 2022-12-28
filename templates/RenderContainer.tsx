@@ -8,23 +8,6 @@ import { Button } from "@mui/material/";
 export const RenderContainer: React.FC = () => {
   const { data } = useContext(DataContext);
 
-  async function downloadImage(imageSrc: any) {
-    console.log(data.data.url);
-    const image = await fetch(data?.data?.url);
-    console.log("2");
-    const imageBlog = await image.blob();
-    console.log("3");
-    const imageURL = URL.createObjectURL(imageBlog);
-    console.log("4");
-
-    const link = document.createElement("a");
-    link.href = imageURL;
-    link.download = "image file name here";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
-
   return (
     <>
       {data?.data?.url ? (
@@ -56,12 +39,11 @@ export const RenderContainer: React.FC = () => {
                   target="_blank"
                   fullWidth
                 >
-                  original size
+                  view original size
                 </Button>
               </div>
               <div>
                 <Button
-                  
                   disableFocusRipple={true}
                   className={styles.uiButton}
                   sx={{
@@ -75,9 +57,9 @@ export const RenderContainer: React.FC = () => {
                   }}
                   fullWidth
                   variant="contained"
-                  onClick={() => downloadImage(data.data.url)}
+                  
                 >
-                  download
+                  <a href={data.data.url} download>Download image</a>
                 </Button>
               </div>
             </div>

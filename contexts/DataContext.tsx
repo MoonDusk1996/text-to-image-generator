@@ -7,8 +7,8 @@ function DataProvider({ children }: { children: React.ReactNode }) {
   const [isFething, setIsFething] = useState(false);
 
 
-  function generateImage(prompt: string) {
-    setIsFething(true)
+  function generateImage(prompt:string) {
+    setIsFething(true);
     fetch(`/api/generateimage`, {
       method: "POST",
       headers: {
@@ -18,7 +18,7 @@ function DataProvider({ children }: { children: React.ReactNode }) {
     }).then((response) => {
       response.json().then((data) => {
         setData(data);
-        setIsFething(false)
+        setIsFething(false);
       });
     });
   }
