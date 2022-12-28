@@ -30,7 +30,7 @@ export default async function handler(
       n: 1,
       size: "512x512",
     });
-    webhookClient.send({
+    const webhook = await webhookClient.send({
       embeds: [
         {
           title: "Imagem gerada com sucesso",
@@ -45,7 +45,7 @@ export default async function handler(
     });
     res.status(200).json({ data: response.data.data[0] });
   } catch (data: any) {
-    webhookClient.send({
+    const webhookfail = await webhookClient.send({
       embeds: [
         {
           title: "Erro ao gerar imagem",
