@@ -6,7 +6,7 @@
 This is an AI Image Generator. It creates an image from scratch from a text description.
 ## Link
 
-- [Text to image generator](https://text-to-image-generator-khaki.vercel.app/)
+- [Text to image generator](https://text-to-image-generator-moondusk1996.vercel.app/)
     
 ## Technologies
 
