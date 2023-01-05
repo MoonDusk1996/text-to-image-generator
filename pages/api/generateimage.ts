@@ -28,7 +28,7 @@ export default async function handler(
     const response = await openai.createImage({
       prompt: prompt,
       n: 1,
-      size: "512x512",
+      size: "1024x1024",
     });
     const webhook = await webhookClient.send({
       embeds: [
