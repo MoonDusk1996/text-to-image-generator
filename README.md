@@ -19,9 +19,6 @@ This is an AI Image Generator. It creates an image from scratch from a text desc
 
 
 
-## Demo
-
-![Demostração](https://github.com/MoonDusk1996/assets/blob/main/Buscador-de-cep/ezgif.com-gif-maker.gif)
 
 
 
